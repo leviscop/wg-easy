@@ -21,7 +21,9 @@ const {
   WG_DEFAULT_ADDRESS6,
   WG_PERSISTENT_KEEPALIVE,
   WG_ALLOWED_IPS,
+  WG_PRE_UP,
   WG_POST_UP,
+  WG_PRE_DOWN,
   WG_POST_DOWN,
 } = require('../config');
 
@@ -102,7 +104,9 @@ module.exports = class WireGuard {
 PrivateKey = ${config.server.privateKey}
 Address = ${config.server.address}/24, ${config.server.address6}/120
 ListenPort = 51820
+PreUp = ${WG_PRE_UP}
 PostUp = ${WG_POST_UP}
+PreDown = ${WG_PRE_DOWN}
 PostDown = ${WG_POST_DOWN}
 `;
 
@@ -289,6 +293,8 @@ Endpoint = ${WG_HOST}:${WG_PORT}`;
     config.clients[clientId] = client;
 
     await this.saveConfig();
+
+    return client;
   }
 
   async deleteClient({ clientId }) {
