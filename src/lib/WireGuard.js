@@ -68,6 +68,8 @@ module.exports = class WireGuard {
           throw err;
         });
         // await Util.exec(`iptables -t nat -A POSTROUTING -s ${WG_DEFAULT_ADDRESS.replace('x', '0')}/24 -o eth0 -j MASQUERADE`);
+        // await Util.exec(`iptables -t nat -A POSTROUTING -s ${WG_DEFAULT_ADDRESS.replace('x', '0')}/24 -o wg0 -j MASQUERADE`);
+        // await Util.exec(`iptables -t nat -A POSTROUTING -s ${WG_DEFAULT_ADDRESS.replace('x', '0')}/24 -o tun0 -j MASQUERADE`);
         // await Util.exec('iptables -A INPUT -p udp -m udp --dport 6969 -j ACCEPT');
         // await Util.exec('iptables -A FORWARD -i wg1 -j ACCEPT');
         // await Util.exec('iptables -A FORWARD -o wg1 -j ACCEPT');
