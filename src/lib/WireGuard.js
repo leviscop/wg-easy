@@ -68,7 +68,7 @@ module.exports = class WireGuard {
           throw err;
         });
         // await Util.exec(`iptables -t nat -A POSTROUTING -s ${WG_DEFAULT_ADDRESS.replace('x', '0')}/24 -o eth0 -j MASQUERADE`);
-        // await Util.exec('iptables -A INPUT -p udp -m udp --dport 1337 -j ACCEPT');
+        // await Util.exec('iptables -A INPUT -p udp -m udp --dport 6969 -j ACCEPT');
         // await Util.exec('iptables -A FORWARD -i wg1 -j ACCEPT');
         // await Util.exec('iptables -A FORWARD -o wg1 -j ACCEPT');
         await this.__syncConfig();
@@ -95,7 +95,7 @@ module.exports = class WireGuard {
 [Interface]
 PrivateKey = ${config.server.privateKey}
 Address = ${config.server.address}/24
-ListenPort = 1337
+ListenPort = 6969
 PreUp = ${WG_PRE_UP}
 PostUp = ${WG_POST_UP}
 PreDown = ${WG_PRE_DOWN}
