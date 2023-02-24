@@ -345,7 +345,7 @@ Endpoint = ${WG_HOST}:${WG_PORT}`;
 
     await this.saveConfig();
   }
-  
+
   async updateClientAddress6({ clientId, address6 }) {
     const client = await this.getClient({ clientId });
 
