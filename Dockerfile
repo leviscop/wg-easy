@@ -35,6 +35,7 @@ RUN npm i -g nodemon
 
 # Install Linux packages
 RUN apt update && apt install -y \
+  iproute2 \
   wireguard-tools \
   dumb-init \
   iptables \
