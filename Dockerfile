@@ -42,8 +42,8 @@ RUN apt update && apt install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Expose Ports
-EXPOSE 51820/udp
-EXPOSE 51821/tcp
+EXPOSE 443/udp
+EXPOSE 443/tcp
 
 # Set Environment
 ENV DEBUG=Server,WireGuard
